@@ -21,31 +21,33 @@ USE_CAMERA_STUB := true
 # Use the non-open-source parts, if they're present
 -include vendor/zte/blade2/BoardConfigVendor.mk
 
+# Target and Board
 TARGET_CPU_ABI := armeabi-v6l
 TARGET_CPU_ABI2 := armeabi
 TARGET_ARCH_VARIANT := armv6-vfp
 
+TARGET_BOARD_PLATFORM := msm7x27
+TARGET_BOOTLOADER_BOARD_NAME := blade2
+
+TARGET_SPECIFIC_HEADER_PATH := device/zte/blade2/include
+
+TARGET_NO_RADIOIMAGE := true
+TARGET_NO_BOOTLOADER := true
+
+# Recovery
 TARGET_PREBUILT_RECOVERY_KERNEL := device/zte/blade2/recovery_kernel
 BOARD_CUSTOM_GRAPHICS := ../../../device/zte/blade2/recovery/graphics.c
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/zte/blade2/recovery/recovery_ui.c
 TARGET_RECOVERY_INITRC := device/zte/blade2/recovery/recovery.rc
 
-# Attempt kernel building
+# Kernel
 TARGET_KERNEL_SOURCE := kernel/zte/zte-kernel-msm7x27
 TARGET_KERNEL_CONFIG := cyanogen_blade2_p736v_defconfig
-
-# Prebuilt fallback kernel
 TARGET_PREBUILT_KERNEL := device/zte/blade2/prebuilt/kernel
-
-BUILD_KERNEL := true
 BOARD_KERNEL_BASE := 0x02600000
 BOARD_KERNEL_CMDLINE := androidboot.hardware=blade2 console=null
 
-TARGET_NO_BOOTLOADER := true
-TARGET_NO_RADIOIMAGE := true
-TARGET_BOARD_PLATFORM := msm7x27
-TARGET_BOOTLOADER_BOARD_NAME := blade2
-
+# Partitions
 # dev:    size   erasesize  name
 # mtd0: 00600000 00020000 "recovery"
 # mtd1: 00400000 00020000 "boot"
@@ -85,8 +87,8 @@ TARGET_NEEDS_BLUETOOTH_INIT_DELAY := true
 # RIL
 BOARD_PROVIDES_LIBRIL := true
 
-TARGET_SPECIFIC_HEADER_PATH := device/zte/blade2/include
 
+# USB
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun0/file
 BOARD_UMS_LUNFILE := "/sys/devices/platform/msm_hsusb/gadget/lun0/file"
 
@@ -94,6 +96,7 @@ BOARD_USES_QCOM_HARDWARE := true
 COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE -DREFRESH_RATE=60
 BOARD_USES_QCOM_LIBS := true
 
+# Graphics
 BOARD_EGL_CFG := device/zte/blade2/egl.cfg
 USE_OPENGL_RENDERER := true
 BOARD_ADRENO_DECIDE_TEXTURE_TARGET := true
@@ -101,6 +104,7 @@ TARGET_USES_GENLOCK := true
 TARGET_FORCE_CPU_UPLOAD := true
 TARGET_BOOTANIMATION_PRELOAD := true
 
+# Web Rendering
 WITH_JIT := true
 ENABLE_JSC_JIT := true
 JS_ENGINE := v8
@@ -114,6 +118,4 @@ BOARD_USE_NASTY_PTHREAD_CREATE_HACK := true
 BOARD_FM_DEVICE := si4708
 BOARD_HAVE_FM_RADIO := true
 BOARD_GLOBAL_CFGLAGS += -DHAVE_FM_RADIO -DFM_RADIO
-
-#TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := device/zte/blade2/releasetools/ota_from_target_files
 
