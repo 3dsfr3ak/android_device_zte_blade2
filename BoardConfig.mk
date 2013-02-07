@@ -17,6 +17,7 @@
 include device/zte/msm7x27-common/BoardConfigCommon.mk
 include vendor/zte/blade2/BoardConfigVendor.mk
 
+TARGET_PREBUILT_RECOVERY_KERNEL := device/zte/blade2/prebuilt/recovery_kernel
 TARGET_RECOVERY_INITRC := device/zte/blade2/recovery/recovery.rc
 
 # Kernel
@@ -42,6 +43,7 @@ WIFI_DRIVER_FW_PATH_STA := "/system/etc/fw_4330_b1_apsta.bin"
 WIFI_DRIVER_MODULE_ARG := "firmware_path=/system/etc/fw_4330b1.bin nvram_path=/system/etc/nv_4330b1.txt iface_name=wlan"
 WIFI_DRIVER_MODULE_NAME := "dhd"
 WIFI_BAND := 802_11_ABG
+WIFI_DRIVER_LOADER_REUSE := true
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH_BCM := true

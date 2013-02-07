@@ -1,6 +1,10 @@
 on early-init
     start ueventd
 
+# Setup android gadget
+    write /sys/module/g_android/parameters/serial_number CM10.1-Crescent
+    write /sys/module/g_android/parameters/product_id 0x1351
+
 on init
     export PATH /sbin
     export ANDROID_ROOT /system
@@ -24,6 +28,10 @@ on init
     mount /tmp /tmp tmpfs
     mount /dev/block/vold/179:1 /sdcard/ vfat
     symlink /sdcard /mnt/sdcard
+
+# ADB sideload permissions
+    chown root shell /tmp
+    chmod 0775 /tmp
 
 on boot
     ifup lo

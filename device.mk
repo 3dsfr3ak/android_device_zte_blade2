@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2011 The Android Open-Source Project
+# Copyright (C) 2013 The Android Open-Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,8 +14,9 @@
 # limitations under the License.
 #
 
-include device/zte/msm7x27-common/common.mk
+$(call inherit-product, device/zte/msm7x27-common/common.mk)
 $(call inherit-product, vendor/zte/blade2/blade2-vendor.mk)
+$(call inherit-product-if-exists, device/zte/blade2/packages.mk)
 
 # Baseband versions for device variations
 ifdef P736E
