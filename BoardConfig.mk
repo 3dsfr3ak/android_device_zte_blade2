@@ -32,6 +32,9 @@ BOARD_KERNEL_CMDLINE := androidboot.hardware=blade2 console=null
 TARGET_BOOTLOADER_NAME := blade2
 TARGET_OTA_ASSERT_DEVICE := blade2
 
+# Touchscreen
+BOARD_USE_LEGACY_TOUCHSCREEN := true
+
 # Wi-Fi
 BOARD_WLAN_DEVICE := bcmdhd
 WPA_SUPPLICANT_VERSION := VER_0_8_X

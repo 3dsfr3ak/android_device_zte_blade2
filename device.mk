@@ -18,6 +18,9 @@ $(call inherit-product, device/zte/msm7x27-common/common.mk)
 $(call inherit-product, vendor/zte/blade2/blade2-vendor.mk)
 $(call inherit-product-if-exists, device/zte/blade2/packages.mk)
 
+# Overlay for CMUpdater
+DEVICE_PACKAGE_OVERLAYS += device/zte/blade2-common/overlay
+
 # Baseband versions for device variations
 ifdef P736E
 PRODUCT_PROPERTY_OVERRIDES += \
