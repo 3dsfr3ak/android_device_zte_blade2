@@ -42,9 +42,9 @@ TARGET_RECOVERY_INITRC := device/zte/blade2/recovery/recovery.rc
 # Kernel
 TARGET_KERNEL_SOURCE := kernel/zte/msm7x27
 ifdef P736E
-TARGET_KERNEL_CONFIG := blade2_jb_p736e_defconfig
+TARGET_KERNEL_CONFIG := cyanogen_blade2_p736e_defconfig
 else
-TARGET_KERNEL_CONFIG := blade2_jb_p736v_defconfig
+TARGET_KERNEL_CONFIG := cyanogen_blade2_p736v_defconfig
 endif
 BOARD_KERNEL_BASE := 0x02600000
 BOARD_KERNEL_CMDLINE := androidboot.hardware=blade2 console=null
